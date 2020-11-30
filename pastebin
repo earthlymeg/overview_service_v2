@@ -1,0 +1,57 @@
+{/* THUMBNAIL GALLERY */}
+    {/* <div className="d-flex justify-content-around">
+      {images &&
+        <li className="list-inline-item active">
+          <a className="selected" data-slide-to="0" data-target="#productCarousel">
+            <img className="img-fluid" src={images[0].thumbnail_url}
+                 style={{ 'verticalAlign': 'baseline', 'objectFit': 'cover', 'width': '100px', 'height': '50px', 'opacity': '50%' }}/>
+          </a>
+        </li>
+      }
+        {images &&
+          images.slice(1).map( image => {
+            return (
+              <li className="list-inline-item">
+                <a data-slide-to={images.indexOf(image)} data-target="#productCarousel">
+                  <img className="img-fluid" src={image.thumbnail_url}
+                       style={{ 'verticalAlign': 'baseline', 'objectFit': 'cover', 'width': '100px', 'height': '50px', 'opacity': '50%' }}/>
+                </a>
+              </li>
+            )
+          })
+        }
+      {/* {images &&
+          images.map( image => {
+            let thumbNail = image.thumbnail_url;
+            return (
+              <div className="mr-2">
+                <a className="thumbnail" href="#">
+                  <img src={thumbNail} alt="" className="img-fluid shadow-lg"
+                  style={{ 'verticalAlign': 'baseline', 'objectFit': 'cover', 'width': '100px', 'height': '50px' }}/>
+                </a>
+              </div>
+            )
+          })
+        }
+    </div> */}
+
+    {/* <ul className="carousel-indicators">
+        {images &&
+          <li className="active" data-slide-to="0" data-target="#productCarousel" style={{ 'backgroundColor': 'transparent'}}>
+            <img className="img-fluid" src={images[0].thumbnail_url}
+                  style={{ 'height': '25px','objectFit': 'cover'}}/>
+          </li>
+        }
+        {images &&
+          images.slice(1).map( image => {
+            return (
+              <li data-slide-to={images.indexOf(image)} data-target="#productCarousel" style={{ 'backgroundColor': 'transparent'}}>
+                <img className="img-fluid" src={image.thumbnail_url}
+                      style={{ 'height': '25px','objectFit': 'cover'}}/>
+              </li>
+            )
+          })
+        }
+      </ul>
+
+      </div> */}
