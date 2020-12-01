@@ -45,7 +45,7 @@ const Navbar = ({ bg, logo, bag, handleChange, handleSearchSubmit }) => (
           </form>
 
           {/* CART */}
-          <button className="btn btn-warning ml-2" type="button" data-toggle="modal" data-target="#cartModal" onClick={() => console.log('clīkk')}><i class="fas fa-shopping-cart"></i></button>
+          <button className="btn btn-warning ml-2" type="button" data-toggle="modal" data-target="#cartModal"><i class="fas fa-shopping-cart"></i></button>
 
           <div className="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-hidden="true">
             <div className="modal-dialog" role="document">
