@@ -9,7 +9,7 @@ import Rating from './Rating.jsx';
 import ButtonGroup from './ButtonGroup.jsx';
 import Sharing from './Sharing.jsx';
 
-const Overview = ({ inventory, currentItem, styles, currentStyle, images, ratings, addToBag, handleStyleClick }) => (
+const Overview = ({ inventory, currentItem, styles, currentStyle, images, ratings, bag, addToBag, handleStyleClick, handleSizeChange,handleQtyChange }) => (
 
   <div>
 
@@ -53,8 +53,12 @@ const Overview = ({ inventory, currentItem, styles, currentStyle, images, rating
 
           {/* BUTTON GROUP */}
           <ButtonGroup
+            currentItem={currentItem}
             currentStyle={currentStyle}
-            addToBag={addToBag}/>
+            handleSizeChange={handleSizeChange}
+            handleQtyChange={handleQtyChange}
+            addToBag={addToBag}
+          />
 
         </div>
 

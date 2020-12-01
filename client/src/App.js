@@ -12,16 +12,21 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      userSession: 83
+      userSession: 83,
+      bag: []
     }
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
     this.handleStyleClick = this.handleStyleClick.bind(this);
+    this.handleSizeChange = this.handleSizeChange.bind(this);
+    this.handleQtyChange = this.handleQtyChange.bind(this);
     this.handleAddToBag = this.handleAddToBag.bind(this);
   }
 
   componentDidMount() {
+    console.log(window.localStorage)
+
     axios.get('http://52.26.193.201:3000/products/list/?count=10')
       .then(res => this.setState({ inventory: res.data, currentItem: res.data[4] }))
       .then(res => {
@@ -62,18 +67,37 @@ class App extends React.Component {
   }
 
   handleStyleClick(e) {
-    console.log('old:', this.state.currentStyle)
-    this.setState({ currentStyle: e, galleryImgs: e.photos }, () => {console.log('new:', this.state.currentStyle)})
+    this.setState({ currentStyle: e, galleryImgs: e.photos })
   }
 
-  handleAddToBag() {
-    console.log(this.state.userSession, this.state.currentStyle.style_id)
-    axios.post('http://52.26.193.201:3000/cart/', {
-      user_session: this.state.userSession,
-      product_id: this.state.currentStyle.style_id
-    })
-    .then(res => console.log(res))
+  handleSizeChange(e) {
+    this.setState({ size: e.target.value }, () => {console.log(this.state.size)})
+  }
 
+  handleQtyChange(e) {
+    this.setState({ qty: e.target.value })
+  }
+
+  handleAddToBag(name, style, price) {
+    let item = {name: name,
+                style: style,
+                size: this.state.size,
+                qty: this.state.qty,
+                price: price
+               };
+
+    console.log(item);
+    // console.log(this.state.userSession, this.state.currentStyle.style_id)
+    // axios.post('http://52.26.193.201:3000/cart/', {
+    //   user_session: this.state.userSession,
+    //   product_id: this.state.currentStyle.style_id
+    // })
+    // .then(res => console.log(res));
+
+    this.setState(prevState => ({
+      bag: [...prevState.bag, item]
+    }))
+    console.log(this.state.bag)
   }
 
   render() {
@@ -84,13 +108,14 @@ class App extends React.Component {
     const currentStyle = this.state.currentStyle;
     const galleryImgs = this.state.galleryImgs;
     const ratings = this.state.ratings;
+    const bag = this.state.bag;
 
     return (
 
       <>
 
         {/* NAVBAR */}
-        <Navbar bg={background} logo={logo} handleChange={this.handleChange} handleSearchSubmit={this.handleSearchSubmit} />
+        <Navbar bg={background} logo={logo} bag={bag} handleChange={this.handleChange} handleSearchSubmit={this.handleSearchSubmit} />
 
         {/* BANNER */}
         <Banner />
@@ -102,8 +127,11 @@ class App extends React.Component {
                   currentStyle={currentStyle}
                   images={galleryImgs}
                   ratings={ratings}
+                  bag={bag}
                   addToBag={this.handleAddToBag}
                   handleStyleClick={this.handleStyleClick}
+                  handleSizeChange={this.handleSizeChange}
+                  handleQtyChange={this.handleQtyChange}
         />
 
       </>

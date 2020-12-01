@@ -1,13 +1,13 @@
 import React from 'react';
 
-const ButtonGroup = ({ currentStyle, addToBag }) => (
+const ButtonGroup = ({ currentItem, currentStyle, handleSizeChange, handleQtyChange, addToBag }) => (
 
   <div>
     <form>
 
       {/* SIZES*/}
       <div className="form-group">
-        <select className="form-control" id="size">
+        <select className="form-control" id="size" onChange={handleSizeChange}>
           <option value="" disabled selected hidden>Size</option>
           {currentStyle &&
             Object.keys(currentStyle.skus).sort((a, b) => a - b).map(sku => {
@@ -21,7 +21,7 @@ const ButtonGroup = ({ currentStyle, addToBag }) => (
 
       {/* QTY */}
       <div className="form-group">
-        <select className="form-control" id="qty">
+        <select className="form-control" id="qty" onChange={handleQtyChange}>
           <option value="" disabled selected hidden>Qty</option>
           <option value="1">1</option>
           <option value="2">2</option>
@@ -33,7 +33,7 @@ const ButtonGroup = ({ currentStyle, addToBag }) => (
 
       {/* CART/SAVE */}
       <div className="d-flex justify-content-between">
-        <div className="btn btn-warning form-control col-9" type="submit" onClick={() => addToBag()}>Add To Bag</div>
+        <div className="btn btn-warning form-control col-9" type="submit" onClick={() => addToBag(currentItem.name, currentStyle.name, currentStyle.original_price)}>Add To Bag</div>
         <div className="btn btn-warning form-control col-2">{/* make this conditional depending on whether it's been saved - filled/not filled*/}<i class="far fa-star"></i></div>
       </div>
 

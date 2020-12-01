@@ -3,7 +3,6 @@ import React from 'react';
 const Gallery = ({ images }) => (
 
   <div>
-    {console.log(images)}
 
     {/* CAROUSEL */}
     <div id="productCarousel"

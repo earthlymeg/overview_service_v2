@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "react-dev": "webpack -d --watch",
-    "start": "cd server && nodemon index.js"
+    "start": "cd server && node index.js"
   },
   "keywords": [],
   "author": "",
