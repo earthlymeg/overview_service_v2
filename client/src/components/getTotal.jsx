@@ -1,13 +1,11 @@
 import React from 'react';
 
-const getTotal = ({ bag }) => {
+const getTotal = (bag) => {
   let total = 0;
 
-  console.log({bag});
-
-  // for (let i = 0; i < bag.length; i++) {
-  //   total += i.price;
-  // }
+  for (let i = 0; i < bag.length; i++) {
+    total += Number(bag[i].price);
+  }
 
   return total;
 }

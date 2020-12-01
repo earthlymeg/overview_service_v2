@@ -61,8 +61,7 @@ const Navbar = ({ bg, logo, bag, handleChange, handleSearchSubmit }) => (
                   bag.map(item => {
                     return (
                       <div className="row">
-                      {console.log(bag)}
-                        <div className="col-5 pl-4">
+                        <div className="col-5 pl-5">
                           <div className="row"><strong>{item.name}</strong></div>
                           <div className="row"><small>Size {item.size}</small></div>
                         </div>
