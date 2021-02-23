@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../styles.css';
   const StyleSelect = ( {styles, handleStyleClick} ) => (
 
     <div className="container-fluid">

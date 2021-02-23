@@ -6,3 +6,8 @@ h1 {
 #productCarousel li:hover {
   opacity: 75% !important
 }
+
+.img-fluid{
+  border-radius: 5px;
+  cursor: pointer;
+}

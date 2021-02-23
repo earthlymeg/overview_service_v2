@@ -1,14 +1,17 @@
 import React from 'react';
 import getTotal from './getTotal.jsx';
+import acme_logo from '../images/acme_logo.png';
 
-const Navbar = ({ bg, logo, bag, handleChange, handleSearchSubmit }) => (
+console.log(acme_logo)
+
+const Navbar = ({ bg, bag, handleChange, handleSearchSubmit }) => (
 
   <nav className="navbar navbar-expand-lg navbar-dark bg-dark img-fluid" style={{ backgroundImage: `url(${bg})`, backgroundPosition: 'center right', width: '100%' }}>
 
     <div className="container">
 
       {/* LOGO */}
-      <a className="navbar-brand mb-1 pb-2" href="#"><img width="80px" height="36px" src={logo} /></a>
+      <a className="navbar-brand mb-1 pb-2" href="#"><img width="80px" height="36px" src={acme_logo} alt="Acme"/></a>
 
       {/* TOGGLER */}
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-collapse">
